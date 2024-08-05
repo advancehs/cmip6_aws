@@ -1,0 +1,82 @@
+[project]
+name = "cmip6_aws"
+version = "0.0.1"
+dynamic = [
+    "dependencies",
+]
+description = "download data from NASA Earth Exchange Global Daily Downscaled Projections (NEX-GDDP-CMIP6)"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = [
+    "cmip6_aws",
+]
+license = {text = "MIT License"}
+authors = [
+  {name = "advancehs", email = "1019753743@qq.com"},
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.entry-points."console_scripts"]
+cmip6_aws = "cmip6_aws.cli:main"
+
+[project.optional-dependencies]
+all = [
+    "cmip6_aws[extra]",
+]
+
+extra = [
+    "pandas",
+]
+
+
+[tool]
+[tool.setuptools.packages.find]
+include = ["cmip6_aws*"]
+exclude = ["docs*"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+
+[tool.distutils.bdist_wheel]
+universal = true
+
+
+[tool.bumpversion]
+current_version = "0.0.1"
+commit = true
+tag = true
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "cmip6_aws/__init__.py"
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
+
+
+[tool.flake8]
+exclude = [
+    "docs",
+]
+max-line-length = 88
+
+
+[project.urls]
+Homepage = "https://github.com/advancehs/cmip6_aws"
+
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
