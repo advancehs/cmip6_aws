@@ -8,10 +8,23 @@
 **download data from NASA Earth Exchange Global Daily Downscaled Projections (NEX-GDDP-CMIP6)**
 
 
--   Free software: MIT License
+-   Free software: MIT license
 -   Documentation: https://advancehs.github.io/cmip6_aws
     
 
-## Features
+## install 
 
--   TODO
+```
+pip install cmip6-aws
+
+```
+## Compile to exe
+
+- choose file - open in terminal
+
+```
+
+pyinstaller -F -w main.py
+
+```
+![](https://advance-markdown.oss-cn-shenzhen.aliyuncs.com/img/20240805193559.png)
