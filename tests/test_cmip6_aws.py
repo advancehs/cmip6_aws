@@ -33,4 +33,4 @@ if __name__ == "__main__":
     print(cmip6.year())
 
     # cmip6.idm("aa", "CESM2", "ssp585", "r4i1p1f1", "pr", "2015v1.1")
-    cmip6.down(r"C:\Users\10197\cmip6_aws\cmip6_aws2\aa","CESM2","ssp585","r4i1p1f1","pr","2015v1.1",(5,55),(55,56))
+    cmip6.down(r"C:\Users\10197\cmip6_aws\cmip6_aws2\aa","CESM2","ssp585","r4i1p1f1","pr",["2015v1.1","2016v1.1"],(5,55),(55,56))

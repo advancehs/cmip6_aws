@@ -110,11 +110,14 @@ class CMIP6:
     def down(self, outputdir, model, scenario, member, variable, year, latminmax, lonminmax):
         if (latminmax[1] < latminmax[0]) or (lonminmax[1] < lonminmax[0]):
             raise SyntaxError("latminmax和lonminmax 中的数字必须前者小于后者")
+        if type(year) !=list:
+            raise SyntaxError("当只查询一个值时，year 应该是个字符串，当查询多个值时，year 应该是个列表")
+
         selected_data = self.data[(self.data['part_2'] == model) &
                                   (self.data['part_3'] == scenario) &
                                   (self.data['part_4'] == member) &
                                   (self.data['part_5'] == variable) &
-                                  (self.data['part_6'] == year)]
+                                  (self.data['part_6'].isin(year))]
 
         ress1 = "s3://nex-gddp-cmip6/" + selected_data['data']
         ress = "\n".join(ress1)
