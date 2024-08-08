@@ -55,14 +55,9 @@ class CMIP6:
             self.filtered_data = self.filtered_data[self.filtered_data['part_2'] == selected_model]
         return list(self.filtered_data['part_3'].unique())
 
-    def member(self, selected_scenario=None):
+    def variable(self, selected_scenario=None):
         if selected_scenario:
             self.filtered_data = self.filtered_data[self.filtered_data['part_3'] == selected_scenario]
-        return list(self.filtered_data['part_4'].unique())
-
-    def variable(self, selected_member=None):
-        if selected_member:
-            self.filtered_data = self.filtered_data[self.filtered_data['part_4'] == selected_member]
         return list(self.filtered_data['part_5'].unique())
 
     def year(self, selected_variable=None):
@@ -70,10 +65,9 @@ class CMIP6:
             self.filtered_data = self.filtered_data[self.filtered_data['part_5'] == selected_variable]
         return list(self.filtered_data['part_6'].unique())
 
-    def idm(self, outputdir, model, scenario, member, variable, year):
+    def idm(self, outputdir, model, scenario, variable, year):
         selected_data = self.data[(self.data['part_2'] == model) &
                                   (self.data['part_3'] == scenario) &
-                                  (self.data['part_4'] == member) &
                                   (self.data['part_5'] == variable) &
                                   (self.data['part_6'] == year)]
 
@@ -107,7 +101,7 @@ class CMIP6:
 
         # return ress
 
-    def down(self, outputdir, model, scenario, member, variable, year, latminmax, lonminmax):
+    def down(self, outputdir, model, scenario, variable, year, latminmax, lonminmax):
         if (latminmax[1] < latminmax[0]) or (lonminmax[1] < lonminmax[0]):
             raise SyntaxError("latminmax和lonminmax 中的数字必须前者小于后者")
         if type(year) !=list:
@@ -115,7 +109,6 @@ class CMIP6:
 
         selected_data = self.data[(self.data['part_2'] == model) &
                                   (self.data['part_3'] == scenario) &
-                                  (self.data['part_4'] == member) &
                                   (self.data['part_5'] == variable) &
                                   (self.data['part_6'].isin(year))]
 
