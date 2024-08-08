@@ -2,7 +2,7 @@
 
 __author__ = """advancehs"""
 __email__ = "1019753743@qq.com"
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 
 from . import cmip6_aws
