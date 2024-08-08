@@ -42,10 +42,6 @@ class CMIP6:
         # 应用函数到 DataFrame
         self.data['part_6'] = self.data['part_6'].apply(extract_year_and_version)
 
-
-
-
-
         self.filtered_data = self.data
         self.current_download_link = None
         self.current_read_link = None
@@ -89,7 +85,7 @@ class CMIP6:
             self.current_download_link = ress1  # 假设有一个名为'download_link'的列
 
         else:
-            self.result.setText('未找到匹配数据')
+            print('未找到匹配数据')
             self.current_download_link = None
 
         from subprocess import call
@@ -100,13 +96,11 @@ class CMIP6:
         # 下载路径
         DownPath = 'D:/downloadidm/'
 
-        # 下载文件名称
-
         # 下载文件链接（注意是这个列表）
         urlList = self.current_download_link
         # 将下载链接全部加入到下载列表，之后再进行下载。
         for ul in urlList:
-            local_file_name = ul[-40:]
+            local_file_name = ul.split("/")[-1]
 
             call([IDM, '/d', ul, '/p', DownPath, '/f', local_file_name, '/n', '/a'])
         call([IDM, '/s'])
@@ -130,7 +124,7 @@ class CMIP6:
             self.current_read_link = ress1  # 假设有一个名为'download_link'的列
 
         else:
-            self.result.setText('未找到匹配数据')
+            print('未找到匹配数据')
             self.current_read_link = None
 
         # 读取文件链接（注意是这个列表）
