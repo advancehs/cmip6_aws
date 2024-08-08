@@ -597,7 +597,35 @@
 
 <h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h1>
 <p>To use cmip6_aws in a project:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>import cmip6_aws
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code>from cmip6_aws import cmip6_aws
+
+cmip6 = cmip6_aws.CMIP6()
+
+# 使用示例
+print(cmip6.model())  # 显示所有 models
+
+print(cmip6.scenario(&quot;CESM2&quot;))
+
+print(cmip6.member(&quot;ssp585&quot;))
+print(cmip6.variable())
+print(cmip6.year())
+
+cmip6.idm(&quot;aa&quot;,&quot;CESM2&quot;,&quot;ssp585&quot;,&quot;r4i1p1f1&quot;,&quot;pr&quot;,&quot;2015v1.1&quot;)
+cmip6.down(r&quot;C:\Users\10197\cmip6_aws\cmip6_aws2\aa&quot;,&quot;CESM2&quot;,&quot;ssp585&quot;,&quot;r4i1p1f1&quot;,&quot;pr&quot;,&quot;2015v1.1&quot;,(5,55),(55,56))
 </code></pre></div></td></tr></table></div>
 
 
@@ -621,7 +649,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-05T13:08:22+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-08T13:18:25+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-08</span>
   </span>
 
     
