@@ -137,7 +137,7 @@ class CMIP6:
             with fs.open(ul) as f:
                 ds = xarray.open_dataset(f).sel(lat=slice(latminmax[0], latminmax[1]),
                                                 lon=slice(lonminmax[0], lonminmax[1]))  # ['tm'].rio.write_crs("4326")
-                ds.to_netcdf('{}/{}'.format(outputdir, ul.split("/")[-1]))
+                ds.to_netcdf('{}/{}'.format(outputdir, ul.split("/")[-1]),mode='w', format='NETCDF4')
                 print("文件已保存在{}/{}中".format(outputdir, ul.split("/")[-1]))
 
     def reset(self):

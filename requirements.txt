@@ -5,3 +5,6 @@ s3fs
 urllib3==1.26.15
 h5netcdf
 h5py
+cftime 
+netCDF4
+scipy  
